@@ -11,6 +11,8 @@ export default class Scorer extends React.Component {
             return AppConstants.Player1ScoredOnce;
         if (player1Score === 0 && player2Score === 1)
             return AppConstants.Player2ScoredOnce;
+        if (player1Score === 1 && player2Score === 1)
+            return AppConstants.BothScoredOnce;
         return player1Score + " : " + player2Score;
     }
 
