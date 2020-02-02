@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 export default class Scorer extends React.Component {
     updateScore = () => {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
+
+        if (player1Score >= 4 && player1Score === player2Score + 1)
+            return AppConstants.AdvantagePlayer1Text;
         if (this.isDeuce())
             return AppConstants.DeuceText;
         if (player1Score <= 3 && player2Score <= 3) {
