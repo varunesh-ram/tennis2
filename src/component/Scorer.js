@@ -6,10 +6,8 @@ export default class Scorer extends React.Component {
     updateScore = () => {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
 
-        if (player1Score >= 4 && this.isPlayer1OnePointGreaterThanPlayer2())
-            return AppConstants.AdvantagePlayer1Text;
-        if (player2Score >= 4 && this.isPlayer2OnePointGreaterThanPlayer1())
-            return AppConstants.AdvantagePlayer2Text;
+        if (this.hasAdvantage())
+            return AppConstants.AdvantageText + this.playerWithHighestScore();
         if (this.isDeuce())
             return AppConstants.DeuceText;
         if (player1Score <= 3 && player2Score <= 3) {
@@ -20,6 +18,15 @@ export default class Scorer extends React.Component {
         return player1Score + " : " + player2Score;
     }
 
+    hasAdvantage = () => {
+        const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
+        if (player1Score >= 4 && this.isPlayer1OnePointGreaterThanPlayer2())
+            return true;
+        if (player2Score >= 4 && this.isPlayer2OnePointGreaterThanPlayer1())
+            return true;
+        return false;
+    }
+
     isPlayer1OnePointGreaterThanPlayer2 = () => {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
         return player1Score === player2Score + 1;
@@ -28,6 +35,14 @@ export default class Scorer extends React.Component {
     isPlayer2OnePointGreaterThanPlayer1 = () => {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
         return player2Score === player1Score + 1;
+    }
+
+    playerWithHighestScore = () => {
+        if (this.props.player1Score > this.props.player2Score) {
+            return AppConstants.Player1Name;
+        } else {
+            return AppConstants.Player2Name;
+        }
     }
 
     isDeuce = () => {
