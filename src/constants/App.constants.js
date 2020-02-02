@@ -4,5 +4,6 @@ export const AppConstants = {
     Player1Name: "Player 1",
     Player2Name: "Player 2",
     LoveAll: "Love all",
+    Player1ScoredOnce: "Fifteen,Love",
     ScoreText: "Score"
 };

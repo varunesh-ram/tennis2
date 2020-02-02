@@ -7,6 +7,8 @@ export default class Scorer extends React.Component {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
         if (player1Score === 0 && player2Score === 0)
             return AppConstants.LoveAll;
+        if (player1Score === 1 && player2Score === 0)
+            return AppConstants.Player1ScoredOnce;
         return player1Score + " : " + player2Score;
     }
 
