@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default class Scorer extends React.Component {
     updateScore = () => {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
-        if (player1Score <= 1 && player2Score <= 1) {
+        if (player1Score <= 2 && player2Score <= 2) {
             if (this.isBothPlayerScoredEqual())
                 return AppConstants.Score[player1Score] + AppConstants.AllText;
             return AppConstants.Score[player1Score] + AppConstants.Comma + AppConstants.Score[player2Score];
