@@ -24,3 +24,13 @@ describe(("<TennisGame/> component"), () => {
     expect(wrapper.find(Scorer).props().player2Score).toBe(1);
   });
 });
+describe(("<TennisGame/> Game functionality"), () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = mount(< TennisGame />);
+  });
+
+  it("On Game Start, Score Should be Love All", () => {
+    expect(wrapper.find(Scorer).find("label").text()).toEqual("Love all ");
+  });
+});
