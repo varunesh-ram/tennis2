@@ -6,6 +6,8 @@ export default class Scorer extends React.Component {
     updateScore = () => {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
 
+        if (player1Score >= 4 && player1Score >= player2Score + 2)
+            return AppConstants.Player1WinnerText;
         if (this.hasAdvantage())
             return AppConstants.AdvantageText + this.playerWithHighestScore();
         if (this.isDeuce())
