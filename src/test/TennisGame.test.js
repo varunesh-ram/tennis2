@@ -66,4 +66,13 @@ describe(("<TennisGame/> Game functionality"), () => {
     player2ScoreButton.simulate('click');
     expect(scoreLabel.text()).toEqual("Thirty,Forty ");
   });
+  it("On both Player Scores thrice, Score Should be Deuce", () => {
+    player1ScoreButton.simulate('click');
+    player1ScoreButton.simulate('click');
+    player1ScoreButton.simulate('click');
+    player2ScoreButton.simulate('click');
+    player2ScoreButton.simulate('click');
+    player2ScoreButton.simulate('click');
+    expect(scoreLabel.text()).toEqual("Deuce ");
+  });
 });
