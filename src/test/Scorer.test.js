@@ -21,7 +21,7 @@ describe(("<Scorer/> component no props"), () => {
 describe(("<Scorer/> component with props"), () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(< Scorer player1Score={0} player2Score={0} />);
+    wrapper = shallow(< Scorer player1Score={0} player2Score={0} isGameOver={() => { }} />);
   });
 
   it("should render correctly", () => {
@@ -35,7 +35,8 @@ describe(("<Scorer/> component with props"), () => {
     it("should not throw a warning", () => {
       const expectedProps = {
         player1Score: 0,
-        player2Score: 0
+        player2Score: 0,
+        isGameOver: () => { }
       };
       const propsError = CheckPropTypes(Scorer.propTypes, expectedProps, 'props', Scorer.name);
       expect(propsError).toBeUndefined();
