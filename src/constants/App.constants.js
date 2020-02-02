@@ -5,6 +5,7 @@ export const AppConstants = {
     Player2Name: "Player 2",
     Score: ["Love", "Fifteen", "Thirty", "Forty"],
     Player1WinnerText: "Player 1 wins",
+    Player2WinnerText: "Player 2 wins",
     AdvantageText: "Advantage ",
     DeuceText: "Deuce",
     AllText: " all",
