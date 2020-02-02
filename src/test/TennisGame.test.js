@@ -19,6 +19,9 @@ describe(("<TennisGame/> component"), () => {
     expect(wrapper.find(Player).length).toBe(2);
     expect(wrapper.find(Scorer).length).toBe(1);
   });
+  it("should have a reset Button to rest the Game", () => {
+    expect(wrapper.find("button").at(2).text()).toEqual("Reset Game");
+  });
   it("should increase the score of player on appropriate event", () => {
     player1ScoreButton.simulate('click');
     expect(wrapper.find(Scorer).props().player1Score).toBe(1);
