@@ -3,9 +3,8 @@ export const AppConstants = {
     PlayerButtonText: "Scored",
     Player1Name: "Player 1",
     Player2Name: "Player 2",
-    LoveAll: "Love all",
-    Player1ScoredOnce: "Fifteen,Love",
-    Player2ScoredOnce: "Love,Fifteen",
-    BothScoredOnce: "Fifteen all",
+    Score: ["Love", "Fifteen"],
+    AllText: " all",
+    Comma: ",",
     ScoreText: "Score"
 };

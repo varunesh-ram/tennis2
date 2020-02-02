@@ -5,14 +5,11 @@ import PropTypes from 'prop-types';
 export default class Scorer extends React.Component {
     updateScore = () => {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
-        if (player1Score === 0 && player2Score === 0)
-            return AppConstants.LoveAll;
-        if (player1Score === 1 && player2Score === 0)
-            return AppConstants.Player1ScoredOnce;
-        if (player1Score === 0 && player2Score === 1)
-            return AppConstants.Player2ScoredOnce;
-        if (player1Score === 1 && player2Score === 1)
-            return AppConstants.BothScoredOnce;
+        if (player1Score <= 1 && player2Score <= 1) {
+            if (player1Score === player2Score)
+                return AppConstants.Score[player1Score] + AppConstants.AllText;
+            return AppConstants.Score[player1Score] + AppConstants.Comma + AppConstants.Score[player2Score];
+        }
         return player1Score + " : " + player2Score;
     }
 
