@@ -3,6 +3,20 @@ import { AppConstants } from '../constants/App.constants';
 import PropTypes from 'prop-types';
 
 export default class Scorer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { scoreText: AppConstants.InitialScore };
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.isPropsChanged(prevProps))
+            this.setState({ scoreText: this.updateScore() });
+    }
+
+    isPropsChanged = (prevProps) => {
+        return prevProps.player1Score !== this.props.player1Score || prevProps.player2Score !== this.props.player2Score
+    }
+
     updateScore = () => {
         const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
 
@@ -78,7 +92,7 @@ export default class Scorer extends React.Component {
         return (
             <div>
                 <h5>{AppConstants.ScoreText}</h5>
-                <label>{this.updateScore()} </label>
+                <label>{this.state.scoreText}</label>
             </div>
         );
     }
